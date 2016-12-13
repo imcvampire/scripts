@@ -1,0 +1,14 @@
+#! /bin/bash
+
+if [ -z $1 ]; then 
+  git pull origin master &&
+    git push origin master
+else
+  if [ -z $2 ]; then
+    git pull origin $1 &&
+      git push origin $1
+  else 
+    git pull $2 $1 &&
+      git push $2 $1
+  fi
+fi
