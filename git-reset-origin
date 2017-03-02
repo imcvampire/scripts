@@ -1,0 +1,14 @@
+#! /bin/bash
+
+if [ -z $1 ]; then 
+  git fetch origin master &&
+    git reset --hard origin/master
+else
+  if [ -z $2 ]; then
+    git fetch origin $1 &&
+      git reset --hard origin/$1
+  else 
+    git fetch $2 $1 &&
+      git reset --hard $2/$1
+  fi
+fi
