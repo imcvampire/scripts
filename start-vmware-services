@@ -1,0 +1,3 @@
+#! /usr/bin/bash
+
+sudo modprobe vmmon && sudo modprobe vmci && systemctl start vmware-hostd.service && systemctl start vmware-networks.service
