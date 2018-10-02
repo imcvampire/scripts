@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+#----------------------------------------------------------
+
+# Purpose:     Create loopback interface for use with gns3
+
+# Author:      Luca Francesca
+
+# Created:     25/08/2013
+
+# Copyright:   (c) Luca Francesca 2013
+
+# Licence:     GPL2
+
+#-----------------------------------------------------------
+
+IP=$1
+
+MASK=$2
+
+ 
+
+ 
+
+function usage() {
+
+  echo -e "Usage: $0 IP MASK"
+
+  exit 1
+
+}
+
+ 
+
+ 
+
+[[ $# -eq 0 ]] && usage
+
+sudo ip tuntap add dev tap1 mode tap user nqa group users
+
+sudo ifconfig tap1 $IP netmask $MASK up
